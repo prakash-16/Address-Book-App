@@ -9,28 +9,29 @@ import com.bridgelabz.addressbookapp.model.AddressBookDTO;
 import com.bridgelabz.addressbookapp.model.AddressBookDetails;
 @Service
 public class AddressBookService implements IAddressBookService{
-
+	@SuppressWarnings("unchecked")
+	private List<AddressBookDetails> addressList = new ArrayList();
 	public List<AddressBookDetails> getAllAddress() {
-		@SuppressWarnings("unchecked")
-		List<AddressBookDetails> addressList = new ArrayList();
-		addressList.add(new AddressBookDetails(1,
-				new AddressBookDTO("Karan Mehta", "11th Street", "7410852963", "karan@gmail.com")));
 		return addressList;
 	}
 
 	public AddressBookDetails getDataById(int id) {
-		AddressBookDetails addressDetails = new AddressBookDetails(id,
-				new AddressBookDTO("Karan Mehta", "11th Street", "7410852963", "karan@gmail.com"));
-		return addressDetails;
+		return addressList.get(id-1);
 	}
 
-	public AddressBookDetails createData(AddressBookDTO addressDetails) {
-		AddressBookDetails newAddressDetails = new AddressBookDetails(1, addressDetails);
+	public AddressBookDetails createData(AddressBookDTO addressData) {
+		AddressBookDetails newAddressDetails = new AddressBookDetails(addressList.size()+1, addressData);
+		addressList.add(newAddressDetails);
 		return newAddressDetails;
 	}
 
 	public AddressBookDetails updateData(int id, AddressBookDTO addressDetails) {
-		AddressBookDetails newAddressDetails = new AddressBookDetails(id, addressDetails);
+		AddressBookDetails newAddressDetails = this.getDataById(id);
+		newAddressDetails.setName(addressDetails.getName());
+		newAddressDetails.setAddress(addressDetails.getAddress());
+		newAddressDetails.setContactNumber(addressDetails.getContactNumber());
+		newAddressDetails.setEmailId(addressDetails.getEmailId());
+		addressList.add(id-1, newAddressDetails);
 		return newAddressDetails;
 	}
 }

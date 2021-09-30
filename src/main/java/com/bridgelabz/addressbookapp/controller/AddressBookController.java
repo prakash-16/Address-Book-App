@@ -42,12 +42,12 @@ public class AddressBookController {
 
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Response> updateContact(@PathVariable int id, @RequestBody AddressBookDTO addressData) {
-		Response res = new Response("Get contact number success", addressDetails.updateData(id, addressData));
+		Response res = new Response("Contact updated success", addressDetails.updateData(id, addressData));
 		return new ResponseEntity<Response>(res, HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> deleteContact(@PathVariable int id) {
-		return new ResponseEntity<String>("Get contact number success", HttpStatus.OK);
+		return new ResponseEntity<String>("Contact deleted", HttpStatus.OK);
 	}
 }
