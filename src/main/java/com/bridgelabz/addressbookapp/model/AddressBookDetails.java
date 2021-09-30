@@ -1,18 +1,27 @@
 package com.bridgelabz.addressbookapp.model;
 
-public class AddressBookDTO {
-
+public class AddressBookDetails {
+	private int id;
 	private String name;
 	private String address;
 	private String contactNumber;
 	private String emailId;
 
-	public AddressBookDTO(String name, String address, String contactNumber, String emailId) {
+	public AddressBookDetails(int id, AddressBookDTO addressDetails) {
 		super();
-		this.name = name;
-		this.address = address;
-		this.contactNumber = contactNumber;
-		this.emailId = emailId;
+		this.id = id;
+		this.name = addressDetails.getName();
+		this.address = addressDetails.getAddress();
+		this.contactNumber = addressDetails.getContactNumber();
+		this.emailId = addressDetails.getEmailId();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -49,8 +58,8 @@ public class AddressBookDTO {
 
 	@Override
 	public String toString() {
-		return "AddressBookDTO [name=" + name + ", address=" + address + ", contactNumber=" + contactNumber
-				+ ", emailId=" + emailId + "]";
+		return "AddressBookDetails [id=" + id + ", name=" + name + ", address=" + address + ", contactNumber="
+				+ contactNumber + ", emailId=" + emailId + "]";
 	}
 	
 }
