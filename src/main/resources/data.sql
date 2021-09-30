@@ -1,0 +1,1 @@
+CREATE TABLE [IF NOT EXISTS] address_book_new (id INTEGER unsigned NOT NULL, name VARCHAR(150) NOT NULL, address VARCHAR(150) NOT NULL,contactNumber VARCHAR(150) NOT NULL, emailId VARCHAR(150) NOT NULL, PRIMARY KEY (id))       
