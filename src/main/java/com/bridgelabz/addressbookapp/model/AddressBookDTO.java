@@ -1,6 +1,8 @@
 package com.bridgelabz.addressbookapp.model;
 
-public class AddressBookDTO {
+import lombok.Data;
+
+public @Data class AddressBookDTO {
 
 	private String name;
 	private String address;
@@ -15,42 +17,6 @@ public class AddressBookDTO {
 		this.emailId = emailId;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getContactNumber() {
-		return contactNumber;
-	}
-
-	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
-	}
-
-	public String getEmailId() {
-		return emailId;
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-
-	@Override
-	public String toString() {
-		return "AddressBookDTO [name=" + name + ", address=" + address + ", contactNumber=" + contactNumber
-				+ ", emailId=" + emailId + "]";
-	}
 	
+
 }

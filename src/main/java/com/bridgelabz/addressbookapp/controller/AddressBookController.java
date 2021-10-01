@@ -37,7 +37,7 @@ public class AddressBookController {
 	@PostMapping("/create")
 	public ResponseEntity<Response> createContact(@RequestBody AddressBookDTO addressData) {
 		Response res = new Response("Address Book created successfully", addressDetails.createData(addressData));
-		return new ResponseEntity<Response>(res, HttpStatus.OK);
+		return new ResponseEntity<Response>(res, HttpStatus.CREATED);
 	}
 
 	@PutMapping("/update/{id}")
